@@ -1,0 +1,169 @@
+/* Root */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Slab", serif;
+  font-size: 1rem;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+/* flex classes */
+.flexR {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.flexC {
+  display: flex;
+  flex-flow: column;
+}
+/* Sizing */
+.contWrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  position: relative;
+  min-height: 100vh;
+  min-width: 300px;
+  top: 0;
+  background: #f3f1fc;
+}
+header {
+  height: 10vh;
+  padding: 0px 16px 0px 16px;
+}
+
+/* Nav */
+a,
+li {
+  list-style: none;
+  text-decoration: none;
+  color: #f3f1fc;
+}
+header {
+  justify-content: space-between;
+  align-items: center;
+  background: #7daece;
+}
+header > p {
+  color: #f3f1fc;
+}
+#tNav {
+  width: 60%;
+  justify-content: flex-end;
+}
+ul {
+  width: 80%;
+  max-width: 170px;
+  justify-content: space-between;
+}
+/* Nav Over */
+
+/* Main */
+#main {
+  height: 90vh;
+  align-items: center;
+  padding: 1em;
+}
+.boxL {
+  height: 20%;
+  width: 100%;
+  border-radius: 25px 25px 0px 0px;
+}
+.boxR {
+  height: 80%;
+  background: #5b869d;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1em;
+  text-align: center;
+  border-radius: 0px 0px 25px 25px;
+}
+#main > .boxR:nth-child(2) {
+  color: #f3f1fc;
+}
+
+#compP {
+  background-image: url("/css/pic/programming-861x646.jpg");
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 25px 25px 0px 0px;
+  background-position: center;
+}
+#compN {
+  font-size: 2.25rem;
+  color: #f3f1fc;
+}
+.button {
+  width: 70%;
+  height: 3em;
+  border-radius: 25px;
+  background: #245377;
+  color: #f3f1fc;
+}
+.button:hover {
+  transition: 0.5s;
+  background: #7daece;
+}
+footer {
+  visibility: hidden;
+  position: fixed;
+  bottom: 0;
+}
+@media only screen and (min-width: 750px) {
+  .contWrap {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "n n"
+      "c c";
+  }
+  header {
+    grid-area: n;
+  }
+  #main {
+    grid-area: c;
+    flex-direction: row-reverse;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .boxL {
+    height: 90%;
+  }
+  #compP {
+    border-radius: 25px 0px 0px 25px;
+  }
+  .boxR {
+    height: 90%;
+    border-radius: 0px 25px 25px 0px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .contWrap {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "n n n n n n"
+      "c c c c c c"
+      "c c c c c c"
+      "c c c c c c"
+      ". . . . . ."
+      "f f f f f f";
+  }
+  #main {
+    height: 85vh;
+  }
+  footer {
+    visibility: visible;
+    grid-area: f;
+    height: 5vh;
+    width: 100%;
+    background: #7daece;
+    justify-content: flex-end;
+  }
+}
